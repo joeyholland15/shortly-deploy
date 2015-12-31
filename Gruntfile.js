@@ -29,7 +29,7 @@ module.exports = function(grunt) {
       options:{},
       dist:{
         src:['public/dist/test.js'],
-        dest: 'public/dist/dist.js'
+        dest: 'public/dist/mini.js'
       }
     },
 
