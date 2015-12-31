@@ -3,10 +3,12 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      options:{},
+      options:{
+        seperator: ';'
+      },
       dist:{
         src:['public/client/**/*.js'],
-        dest: 'public/dist/concat.js'
+        dest: 'public/dist/<%= pkg.name %>.js'
       }
     },
 
@@ -26,10 +28,15 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      options:{},
+      options:{
+        banner: '/*! <%= pkg.name %> <%=  grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
       dist:{
-        src:['public/dist/concat.js'],
-        dest: 'public/dist/client.js'
+        files:{
+         'public/dist/<%= pkg.name %>.min.js' : ['<%= concat.dist.dest %>']
+        // src:['public/dist/concat.js'],
+        // dest: 'public/dist/client.js'
+       }
       }
     },
 
