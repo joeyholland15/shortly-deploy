@@ -5,8 +5,8 @@ module.exports = function(grunt) {
     concat: {
       options:{},
       dist:{
-        src:['public/lib/*.js'],
-        dest: 'public/dist/test.js'
+        src:['public/client/*.js'],
+        dest: 'public/dist/concat.js'
       }
     },
 
@@ -28,8 +28,8 @@ module.exports = function(grunt) {
     uglify: {
       options:{},
       dist:{
-        src:['public/dist/test.js'],
-        dest: 'public/dist/mini.js'
+        src:['public/dist/concat.js'],
+        dest: 'public/dist/client.js'
       }
     },
 
