@@ -43,6 +43,7 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         // Add filespec list here
+        'server-config.js'
       ],
       options: {
         force: 'true',
@@ -107,7 +108,7 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
   grunt.registerTask('test', [
-    'mochaTest'
+    'jshint','mochaTest'
   ]);
 
   grunt.registerTask('build', ['concat', 'uglify'
