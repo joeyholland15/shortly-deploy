@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       options:{},
       dist:{
         src:['public/lib/*.js'],
-        dest: 'public/lib/test.js'
+        dest: 'public/dist/test.js'
       }
     },
 
@@ -26,6 +26,11 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      options:{},
+      dist:{
+        src:['public/dist/test.js'],
+        dest: 'public/dist/dist.js'
+      }
     },
 
     jshint: {
@@ -98,7 +103,7 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', [
+  grunt.registerTask('build', ['concat', 'uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
